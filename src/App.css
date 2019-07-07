@@ -1,6 +1,17 @@
 .left-side{
   width: 50%;
- height: 100vh;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  color:#fff;
+  font-family: 'Mountains of Christmas', cursive;
+  font-size:30px;
+  font-weight:bold;
 }
 .right-side{
   width: 50%;
@@ -8,7 +19,65 @@
   color: #fff;
   padding-left: 50px;
 }
-.App {
-  display: flex;
+.wraper {
+ display: flex;
+ height: 95vh;
+ padding: 10px 50px 30px 50px;
+ border-radius: 100px;
+ overflow: hidden;
+}
+.App{
+  background:url(https://previews.123rf.com/images/tomo00/tomo001407/tomo00140700420/30309171-background-material-wallpaper-%C2%A0-radiation-radial-rainbow-color-seven-colors-medal-medal-like-medal-t.jpg)
 }
 
+input[type="text"] {
+  padding: 10px;
+  margin-right: 20px;
+  border: 0;
+  background: inherit;
+  color: white;
+  outline:none;
+  border-bottom:2px solid #ec5f17;
+}
+input[type="text"]::placeholder{
+  color:white;
+  font-size:14px;
+}
+
+form button{
+  padding:10px 20px;
+  background:#096bb2;
+  color:white;
+  font-size:13px;
+  border:none;
+  border-radius:15px;
+  box-shadow:1px 1px 2px #e2cfcf;
+  outline:none;
+  
+
+}
+
+
+.right-side h1 {
+  font-family: 'Mountains of Christmas', cursive;
+}
+.information{
+  margin-top: 50px;
+}
+.information p {
+  margin: 50px 0px;
+  position:relative;
+  width:50%;
+}
+.information p  span{
+  color:#ec5f17
+}
+.information p:after {
+content:"";
+position:absolute;
+width:100%;
+height:1px;
+background:#737070;
+bottom:-10px;
+left:0
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Form from "./components/Form"
-import RainBackGround from "./image/RainBackGround.jpg"
+import WeatherBackGround from "./image/WeatherBackGround.jpeg"
 
 import Information from "./components/Information"
 
@@ -28,7 +28,7 @@ constructor(props){
     const country = e.target.elements.country.value
     
     if(this.state.err){
-      this.setState({
+      this.setState ({
         city: null,
         country: null,
         humidity: null,
@@ -69,13 +69,17 @@ constructor(props){
   
   render(){
     const styleLeftSide = {
-      backgroundImage: `url(${RainBackGround})`
+      backgroundImage: `url(${WeatherBackGround})`
     }
   return (
     <div className="App">
-      <div className = "left-side" style={ styleLeftSide}> </div>
+      <div className = "wraper">
+      <div className = "left-side" style={ styleLeftSide}> 
+      <h1>Weather App</h1>
+      <p>Helps you find weather conditions in city</p>
+      </div>
       <div className = "right-side">
-        <h1>My Weather App</h1>
+        <h1>Nhập thành phố và quốc gia</h1>
         <Form onSubmit = {this.onFormSubmit} />
         <Information 
          city = {this.state.city}
@@ -85,6 +89,7 @@ constructor(props){
          description = {this.state.description}
          error = {this.state.err}
         />
+      </div>
       </div>
     </div>
   );

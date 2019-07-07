@@ -4,12 +4,12 @@ const Information = props =>{
     const {city,country,humidity,temp,description,error} = props
     return (
     <div className="information">
-{       error && <p style={{color: "red"}}>{error} !!!</p>}
-        {city && <p>Thành phố: {city}</p>}
-        {country && <p>Quốc gia: {country}</p>}
-        {humidity && <p>Độ ẩm: {humidity}</p>}
-        {temp && <p>Nhiệt độ: {temp}*C</p>}
-        {description && <p>Mô tả: {description}</p>}
+{       error && <span style={{color: "red"}}>{error} !!!</span>}
+        {city && <p><span>Thành phố:</span> {city}</p>}
+        {country && <p><span>Quốc gia:</span> {country}</p>}
+        {humidity && <p><span>Độ ẩm:</span> {humidity}</p>}
+        {temp && <p><span>Nhiệt độ:</span> {temp}*C</p>}
+        {description && <p><span>Condition:</span>  {description}</p>}
     </div>
     )
 }
