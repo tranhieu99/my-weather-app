@@ -17,7 +17,8 @@ constructor(props){
     country: null,
     humidity: null,
     temp: null,
-    description: null
+    description: null,
+    err: null
   }
 }
 
@@ -25,16 +26,45 @@ constructor(props){
     e.preventDefault()
     const city = e.target.elements.city.value
     const country = e.target.elements.country.value
+    
+    if(this.state.err){
+      this.setState({
+        city: null,
+        country: null,
+        humidity: null,
+        temp: null,
+        description: null,
+    })
+  }
+    if(!city || !country){
+      this.setState({
+        err: "Không được bỏ trống"
+      })
+      return
+    }
+    else{
     let response = await fetch(` https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
     let data =  await response.json()
-    console.log(data)
+      if(data.cod == "404"){
+        this.setState({
+          err: "Nhập sai tên thành phố hoặc quốc gia mời nhập lại"
+        })
+        return
+      }
+      else{
+        this.setState({
+          err: null
+        })
+      }
     this.setState({
       city: data.name,
       country: data.sys.country,
       humidity: data.main.humidity,
       temp: data.main.temp,
-      description: data.weather[0].main
+      description: data.weather[0].main,
+      err: null
     })
+  }
   }
   
   render(){
@@ -53,6 +83,7 @@ constructor(props){
          humidity = {this.state.humidity}
          temp = {this.state.temp}
          description = {this.state.description}
+         error = {this.state.err}
         />
       </div>
     </div>
