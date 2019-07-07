@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Form from "./components/Form"
+import RainBackGround from "./image/RainBackGround.jpg"
+
+const API_KEY = '07cde7ebe6c8b28d6a1c941fab821a95'
+// https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=YOUR_API_KEY 
+class App extends React.Component {
+ 
+constructor(props){
+  super(props)
+  this.state = {
+    
+  }
+}
+
+  onFormSubmit = async (e) =>{
+    e.preventDefault()
+    const city = e.target.elements.city.value
+    const country = e.target.elements.country.value
+    let response = await fetch(` https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
+    let data =  await response.json()
+    console.log(data)
+  }
+  
+  render(){
+    const styleLeftSide = {
+      backgroundImage: `url(${RainBackGround})`
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className = "left-side" style={ styleLeftSide}> </div>
+      <div className = "right-side">
+        <h1>My Weather App</h1>
+        <Form onSubmit = {this.onFormSubmit} />
+      </div>
     </div>
   );
+  }
 }
 
 export default App;
