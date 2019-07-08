@@ -81,3 +81,34 @@ background:#737070;
 bottom:-10px;
 left:0
 }
+/* responsive */
+@media (max-width:1000px){
+  .wraper{
+      flex-direction:column;
+      padding:0;
+      border-radius:0;
+  }
+  .left-side{
+      width:100%;
+      font-size:20px;
+      height: max-content;
+  }
+  .right-side{
+      width:100%;
+      padding:0px 0px 100px 0px;
+      text-align:center;
+  }
+  .right-side input{
+      margin-bottom:25px;
+  }
+  .right-side button{
+  display:block;
+  margin:0 auto;
+  padding:10px;
+  font-size:12px
+  }
+  .information p {
+      width:100%;
+  }
+  
+  }
